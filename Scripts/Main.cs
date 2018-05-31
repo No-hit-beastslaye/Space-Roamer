@@ -8,7 +8,14 @@ public class Main : MonoBehaviour
   public float GravityUp;
   public float GravityDown;
 
-  void Update()
+  private SpriteRenderer BIG;
+
+    private void Awake()
+    {
+        BIG = GetComponent<SpriteRenderer>();
+    }
+
+    void Update()
   {
     /*velocity = velocity + acceleration * Time.deltaTime;
     transform.position = transform.position + velocity * Time.deltaTime;*/
@@ -20,11 +27,13 @@ public class Main : MonoBehaviour
     if (xInput == 1)
     {
       transform.Translate(Speedweed, 0, 0);
+      BIG.flipX = true;
     }   
 
     else if (xInput == -1)
     {
       transform.Translate(-Speedweed, 0, 0);
+      BIG.flipX = false;
     }
 
     if (yInput == 1)

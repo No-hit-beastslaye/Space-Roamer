@@ -6,6 +6,7 @@ public class Jump : MonoBehaviour {
 
 	public float JumpHeight;
 	private bool Jumping = false;
+    public float timer;
 
     Animator Move;
 
@@ -24,24 +25,33 @@ public class Jump : MonoBehaviour {
     // Update is called once per frame
     void Update ()
 	{
-        if (Jumping = false)
-        {
-            Move.SetBool("Land", true);
-        }
-
-        if (Input.GetKeyDown(KeyCode.W) && !Jumping || Input.GetKeyDown(KeyCode.Space) && !Jumping)
+        if (Input.GetKeyDown(KeyCode.W) && !Jumping)
         {
 			_rigidBody2D.AddForce(Vector2.up * JumpHeight);
 
 			Jumping = true;
+            Move.SetBool("Idle", false);
+            Move.SetBool("Land", false);
+            timer = 0;
 		}
-	}
 
-	void OnCollisionEnter2D (Collision col)
+        if (timer == 1)
+        {
+            Move.SetBool("Idle", true);
+        }
+    }
+
+	void OnCollisionEnter2D (Collision2D col)
 	{
-		if(col.gameObject.tag == "Ground")
+        //col
+		if(col.collider.gameObject.tag == "Ground")
 		{
-			Jumping = false;
+            if(Jumping == true)
+            {
+                Move.SetBool("Land", true);
+                timer++;
+                Jumping = false;
+            }
 		}
 	}
 }
