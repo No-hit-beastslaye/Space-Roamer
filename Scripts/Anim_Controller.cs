@@ -7,6 +7,7 @@ public class Anim_Controller : MonoBehaviour
 
     Animator Move;
 
+    //Getting the Animator.
     void Start()
     {
         Move = GetComponent<Animator>();
@@ -15,6 +16,7 @@ public class Anim_Controller : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Alle animatie binds.
         if (Input.GetKeyDown(KeyCode.A))
         {
             Move.SetBool("Run", true);
