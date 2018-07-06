@@ -17,7 +17,8 @@ public class Parts_Collect : MonoBehaviour {
 
     private string lv2 = "Level2";
     private string Vic = "Victory";
-
+    
+    //Met de collision en de tag kan je de onderdelen verzamelen.
     private void OnTriggerEnter2D(Collider2D Coin)
     {
         if (Coin.gameObject.CompareTag("Rocket part"))
@@ -26,7 +27,7 @@ public class Parts_Collect : MonoBehaviour {
             Doel++;
         }
 
-
+        //Als je alle onderdelen hebt, en dan het einde bereikt, win je.
         if (Coin.gameObject.CompareTag("End Point"))
         {
             if (Doel >= 4)
@@ -37,7 +38,8 @@ public class Parts_Collect : MonoBehaviour {
                 //SceneManager.LoadScene(lv2);
                 SceneManager.LoadScene(Vic);
             }
-
+    
+            //Als je niet genoeg onderdelen hebt, gebeurd er niks.
             else if (Doel >= 4)
             {
                 Debug.Log("Oof, you miss a few parts.");
@@ -45,6 +47,7 @@ public class Parts_Collect : MonoBehaviour {
         }
     }
 
+    //UI deel voor de onderdelen.
     private void Update()
     {
         if (Doel <= 0)
