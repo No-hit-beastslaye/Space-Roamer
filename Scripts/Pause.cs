@@ -10,7 +10,8 @@ public class Pause : MonoBehaviour
     public GameObject Player;
 
     public bool Active = (false);
-
+    
+    //Door input worden er functies aangeroepen.
     private void Update()
     {
         if(Input.GetKeyDown(KeyCode.Escape))
@@ -24,6 +25,7 @@ public class Pause : MonoBehaviour
         }
     }
 
+    //Zet het spel op pauze..
     public void PauseHard()
     {
         Pausemenu.SetActive(true);
@@ -35,7 +37,7 @@ public class Pause : MonoBehaviour
             Time.timeScale = 0;
     }
 
-
+    //Zorgt ervoor dat het spel kan hervatten.
     public void Resume()
     {
         Pausemenu.SetActive(false);
