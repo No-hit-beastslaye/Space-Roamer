@@ -1,12 +1,22 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Parts_Collect : MonoBehaviour {
 
     public int Doel = 0;
 
-    public Component yeet;
+    public Component End;
+
+    public Component C0;
+    public Component C1;
+    public Component C2;
+    public Component C3;
+    public Component C4;
+
+    private string lv2 = "Level2";
+    private string Vic = "Victory";
 
     private void OnTriggerEnter2D(Collider2D Coin)
     {
@@ -19,17 +29,16 @@ public class Parts_Collect : MonoBehaviour {
 
         if (Coin.gameObject.CompareTag("End Point"))
         {
-            if (Doel >= 6)
+            if (Doel >= 4)
             {
                 Debug.Log("Congratulations, you've won the game.");
-                Doel++;
-                if (Coin.gameObject.CompareTag("End Text"))
-                {
-                    Coin.gameObject.SetActive(true);
-                }
+                End.gameObject.SetActive(true);
+
+                //SceneManager.LoadScene(lv2);
+                SceneManager.LoadScene(Vic);
             }
 
-            else if (Doel >= 5)
+            else if (Doel >= 4)
             {
                 Debug.Log("Oof, you miss a few parts.");
             }
@@ -38,7 +47,50 @@ public class Parts_Collect : MonoBehaviour {
 
     private void Update()
     {
+        if (Doel <= 0)
+        {
+            C0.gameObject.SetActive(true);
+            C1.gameObject.SetActive(false);
+            C2.gameObject.SetActive(false);
+            C3.gameObject.SetActive(false);
+            C4.gameObject.SetActive(false);
+        }
+
+        if (Doel == 1)
+        {
+            C0.gameObject.SetActive(false);
+            C1.gameObject.SetActive(true);
+            C2.gameObject.SetActive(false);
+            C3.gameObject.SetActive(false);
+            C4.gameObject.SetActive(false);
+        }
         
+        if (Doel == 2)
+        {
+            C0.gameObject.SetActive(false);
+            C1.gameObject.SetActive(false);
+            C2.gameObject.SetActive(true);
+            C3.gameObject.SetActive(false);
+            C4.gameObject.SetActive(false);
+        }
+
+        if (Doel == 3)
+        {
+            C0.gameObject.SetActive(false);
+            C1.gameObject.SetActive(false);
+            C2.gameObject.SetActive(false);
+            C3.gameObject.SetActive(true);
+            C4.gameObject.SetActive(false);
+        }
+
+        if (Doel >= 4)
+        {
+            C0.gameObject.SetActive(false);
+            C1.gameObject.SetActive(false);
+            C2.gameObject.SetActive(false);
+            C3.gameObject.SetActive(false);
+            C4.gameObject.SetActive(true);
+        }
     }
 }
 

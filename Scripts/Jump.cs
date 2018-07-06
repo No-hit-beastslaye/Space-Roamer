@@ -33,7 +33,7 @@ public class Jump : MonoBehaviour {
             Move.SetBool("Idle", false);
             Move.SetBool("Land", false);
             timer = 0;
-		}
+        }
 
         if (timer == 1)
         {
