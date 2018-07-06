@@ -15,7 +15,6 @@ public class Enemie_AI : MonoBehaviour
     public float minY;
     public float maxY;
 
-
     void Start()
     {
         waitTime = startWaitTime;
@@ -24,7 +23,7 @@ public class Enemie_AI : MonoBehaviour
 
     }
 
-
+    //RNG move patterns tussen 2 punten.
     void Update()
     {
         transform.position = Vector2.MoveTowards(transform.position, moveSpot.position, speed * Time.deltaTime);
