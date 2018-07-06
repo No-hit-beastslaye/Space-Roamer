@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Main : MonoBehaviour
 {
-  public float Speedweed;
+  public float Speed;
   public float GravityUp;
   public float GravityDown;
 
@@ -22,19 +22,19 @@ public class Main : MonoBehaviour
 
     if (xInput == 1)
     {
-      transform.Translate(Speedweed, 0, 0);
+      transform.Translate(Speed, 0, 0);
       BIG.flipX = true;
     }   
 
     else if (xInput == -1)
     {
-      transform.Translate(-Speedweed, 0, 0);
+      transform.Translate(-Speed, 0, 0);
       BIG.flipX = false;
     }
 
     if (yInput == 1)
     {
-      transform.Translate(0, Speedweed*GravityUp, 0);
+      transform.Translate(0, Speed*GravityUp, 0);
     }
   }
 }
