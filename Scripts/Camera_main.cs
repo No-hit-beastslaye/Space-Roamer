@@ -23,6 +23,7 @@ public class Camera_main : MonoBehaviour
         transform.position = new Vector3(player.position.x, player.position.y, transform.position.z);
     }
 
+    //Camera bounds declaratie.
     private void Start()
     {
         min = CameraBounds.bounds.min;
