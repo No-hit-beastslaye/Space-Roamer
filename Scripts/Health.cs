@@ -21,7 +21,8 @@ public class Health : MonoBehaviour {
     {
         Move = GetComponent<Animator>();
     }
-
+    
+    //Er gaat een leven af als je de tag met collision aanraakt.
     void OnCollisionEnter2D(Collision2D col)
     {
         if (col.gameObject.tag == "Enemie")
@@ -36,6 +37,7 @@ public class Health : MonoBehaviour {
         //Move.SetBool("Hit", false);
     }
 
+    //Fall death.
     private void OnTriggerEnter2D(Collider2D col)
     {
         if ( col.gameObject.tag == "World Border")
@@ -44,6 +46,7 @@ public class Health : MonoBehaviour {
         }
     }
 
+    //Health variabel naar UI.
     void Update()
     {
         if(Life >= 4)
@@ -97,7 +100,8 @@ public class Health : MonoBehaviour {
             Move.SetBool("GameOver", true);
         }
     }
-
+    
+    //Game Over transition.
     public void AnimationEnded()
     {
         SceneManager.LoadScene(Deadend);
