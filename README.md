@@ -4,7 +4,7 @@ The final project of the first year.
 
 Space roamer is a 2d platformer set in space, it's your goal to pick up the scrapped parts from your ship to try and get away from the alien planet. But beware of the dangers however.
 
-# Proces & Production
+# Process & Production
 
 We started the project off brainstorming about we were going to do, and how we were gonna do it. Eventually we had the idea to make a platforming game set in space.
 
